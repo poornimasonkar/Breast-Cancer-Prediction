@@ -67,13 +67,6 @@ git clone https://github.com/poornimasonkar/Breast-Cancer-Prediction.git
 cd breast-cancer-prediction
 pip install -r requirements.txt
 
-
-### ▶️ Run Locally
-```bash
-python app.py
-```
-Then open your browser and go to `http://127.0.0.1:5000`
-
 ---
 
 ## 📦 Deployment (Render.com)
