@@ -1,37 +1,33 @@
-import streamlit as st
-from flask import Flask, render_template, request
-import numpy as np
+from flask import Flask, render_template, request, jsonify
 import pickle
+import numpy as np
 
 app = Flask(__name__)
 
-# Load trained model
+# Load the model
 model = pickle.load(open('model.pkl', 'rb'))
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    prediction = None
-    if request.method == 'POST':
-        try:
-            features = request.form['features']
-            features = [float(x.strip()) for x in features.split(',')]
-            if len(features) != 30:
-                raise ValueError("Exactly 30 features are required.")
-            final_features = [np.array(features)]
-            result = model.predict(final_features)[0]
+@app.route('/')
+def home():
+    return render_template('index.html')
 
-            if result == 1:
-                prediction = "🧬 Cancerous"
-            else:
-                prediction = "✅ Non-Cancerous"
-
-        except Exception as e:
-            prediction = f"Error: {str(e)}"
-
-    return render_template('index.html', prediction=prediction)
+@app.route('/predict', methods=['POST'])
+def predict():
+    try:
+        features_str = request.json['features']
+        values = [float(x.strip()) for x in features_str.split(',')]
+        
+        if len(values) != 30:
+            return jsonify({'prediction': '❌ Please enter exactly 30 values'}), 400
+            
+        input_array = np.array(values).reshape(1, -1)
+        pred = model.predict(input_array)[0]
+        
+        result = "Malignant (Cancerous) ❌" if pred == 0 else "Benign (Non-Cancerous) ✅"
+        return jsonify({'prediction': result})
+        
+    except:
+        return jsonify({'prediction': '❌ Invalid input. Enter 30 comma-separated numbers'}), 400
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
