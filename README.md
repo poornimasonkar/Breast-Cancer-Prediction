@@ -14,12 +14,19 @@ Welcome to the **Breast Cancer Prediction Web Application** – a simple yet pow
 
 ---
 
+## 🌐 Live Demo
+> 🚀 The app is now deployed and live on **Render.com**!
+
+👉 **[Click here to try the app]()**
+
+
 ## 🌟 About This App
 
 - ✅ Easy-to-use web interface
 - 📊 Utilizes a trained ML model for fast predictions
 - 🧬 Helps raise awareness for early detection of breast cancer
 - 👩‍⚕️ Educational and user-friendly tool for academic and demo purposes
+- ☁️ Deployed on Render.com for public access
 
 ---
 
@@ -56,6 +63,35 @@ Welcome to the **Breast Cancer Prediction Web Application** – a simple yet pow
 ### 🔽 Installation
 
 ```bash
-git clone https://github.com/yourusername/breast-cancer-prediction.git
+git clone https://github.com/poornimasonkar/Breast-Cancer-Prediction.git
 cd breast-cancer-prediction
 pip install -r requirements.txt
+
+
+### ▶️ Run Locally
+```bash
+python app.py
+```
+Then open your browser and go to `http://127.0.0.1:5000`
+
+---
+
+## 📦 Deployment (Render.com)
+This app is deployed using **[Render.com](https://render.com)**. To deploy your own:
+
+1. Push your code to GitHub
+2. Go to [render.com](https://render.com) and create a **New Web Service**
+3. Connect your GitHub repo
+4. Set the **Start Command** to:
+```bash
+   gunicorn app:app
+```
+5. Add a `requirements.txt` with all dependencies
+6. Click **Deploy** 🚀
+
+---
+
+## 👩‍💻 Author
+**Poornima Sonkar**
+- 🐙 [GitHub](https://github.com/poornimasonkar)
+- 💼 [LinkedIn](https://linkedin.com/in/poornima-sonkar-8507692b5)
