@@ -30,4 +30,4 @@ def predict():
         return jsonify({'prediction': '❌ Invalid input. Enter 30 comma-separated numbers'}), 400
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
