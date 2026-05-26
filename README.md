@@ -20,6 +20,10 @@ Welcome to the **Breast Cancer Prediction Web Application** – a simple yet pow
 👉 **[Click here to try the app](https://breast-cancer-prediction-6vho.onrender.com)**
 
 
+ ## 📸 App Screenshot
+![App Screenshot](screenshot.png)
+
+
 ## 🌟 About This App
 
 - ✅ Easy-to-use web interface
